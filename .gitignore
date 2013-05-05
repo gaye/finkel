@@ -1,7 +1,11 @@
 
-Debug/
+/server/enc_temp_folder/
+/server/Debug/
+/server/ipch/
 *.opensdf
 *.sdf
+*.skeleton.cpp
 *.suo
+*.swp
 *.user
 

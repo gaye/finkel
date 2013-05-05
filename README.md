@@ -3,11 +3,11 @@
 
 Save your soul and leave while you still have time!
 
-## Build (only works on Windows)
+## Build
+
+    make build
 
 ### Prerequisites
 
-1. Thrift
+1. Thrift 0.7.0
 2. g++
-
-    make build
