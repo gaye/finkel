@@ -1,4 +1,5 @@
 
+/client/node_modules/
 /server/enc_temp_folder/
 /server/Debug/
 /server/ipch/

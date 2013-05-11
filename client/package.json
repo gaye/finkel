@@ -1,0 +1,9 @@
+{
+  "name": "finkel-client",
+  "version": "0.0.1",
+  "author": "Gareth Aye <gareth.aye@gmail.com>",
+  "dependencies": {
+    "mocha": "1.8.1",
+    "thrift": "0.7.0"
+  }
+}
