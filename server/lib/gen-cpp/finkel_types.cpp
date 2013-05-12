@@ -7,8 +7,8 @@
 
 
 
-const char* Bitmap::ascii_fingerprint = "0FB6713F450FDA917844421D68174C38";
-const uint8_t Bitmap::binary_fingerprint[16] = {0x0F,0xB6,0x71,0x3F,0x45,0x0F,0xDA,0x91,0x78,0x44,0x42,0x1D,0x68,0x17,0x4C,0x38};
+const char* Bitmap::ascii_fingerprint = "E310CE032BA4BC66095A6E83A5544AA4";
+const uint8_t Bitmap::binary_fingerprint[16] = {0xE3,0x10,0xCE,0x03,0x2B,0xA4,0xBC,0x66,0x09,0x5A,0x6E,0x83,0xA5,0x54,0x4A,0xA4};
 
 uint32_t Bitmap::read(::apache::thrift::protocol::TProtocol* iprot) {
 
@@ -89,7 +89,7 @@ uint32_t Bitmap::read(::apache::thrift::protocol::TProtocol* iprot) {
             uint32_t _i4;
             for (_i4 = 0; _i4 < _size0; ++_i4)
             {
-              xfer += iprot->readBool(this->bmBits[_i4]);
+              xfer += iprot->readByte(this->bmBits[_i4]);
             }
             iprot->readListEnd();
           }
@@ -133,11 +133,11 @@ uint32_t Bitmap::write(::apache::thrift::protocol::TProtocol* oprot) const {
   xfer += oprot->writeFieldEnd();
   xfer += oprot->writeFieldBegin("bmBits", ::apache::thrift::protocol::T_LIST, 7);
   {
-    xfer += oprot->writeListBegin(::apache::thrift::protocol::T_BOOL, static_cast<uint32_t>(this->bmBits.size()));
-    std::vector<bool> ::const_iterator _iter5;
+    xfer += oprot->writeListBegin(::apache::thrift::protocol::T_BYTE, static_cast<uint32_t>(this->bmBits.size()));
+    std::vector<int8_t> ::const_iterator _iter5;
     for (_iter5 = this->bmBits.begin(); _iter5 != this->bmBits.end(); ++_iter5)
     {
-      xfer += oprot->writeBool((*_iter5));
+      xfer += oprot->writeByte((*_iter5));
     }
     xfer += oprot->writeListEnd();
   }

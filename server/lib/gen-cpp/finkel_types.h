@@ -29,8 +29,8 @@ typedef struct _Bitmap__isset {
 class Bitmap {
  public:
 
-  static const char* ascii_fingerprint; // = "0FB6713F450FDA917844421D68174C38";
-  static const uint8_t binary_fingerprint[16]; // = {0x0F,0xB6,0x71,0x3F,0x45,0x0F,0xDA,0x91,0x78,0x44,0x42,0x1D,0x68,0x17,0x4C,0x38};
+  static const char* ascii_fingerprint; // = "E310CE032BA4BC66095A6E83A5544AA4";
+  static const uint8_t binary_fingerprint[16]; // = {0xE3,0x10,0xCE,0x03,0x2B,0xA4,0xBC,0x66,0x09,0x5A,0x6E,0x83,0xA5,0x54,0x4A,0xA4};
 
   Bitmap() : bmType(0), bmWidth(0), bmHeight(0), bmWidthBytes(0), bmPlanes(0), bmBitsPixel(0) {
   }
@@ -43,7 +43,7 @@ class Bitmap {
   int64_t bmWidthBytes;
   int16_t bmPlanes;
   int16_t bmBitsPixel;
-  std::vector<bool>  bmBits;
+  std::vector<int8_t>  bmBits;
 
   _Bitmap__isset __isset;
 
@@ -71,7 +71,7 @@ class Bitmap {
     bmBitsPixel = val;
   }
 
-  void __set_bmBits(const std::vector<bool> & val) {
+  void __set_bmBits(const std::vector<int8_t> & val) {
     bmBits = val;
   }
 

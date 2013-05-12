@@ -6,7 +6,7 @@ struct Bitmap {
   4: i64 bmWidthBytes;
   5: i16 bmPlanes;
   6: i16 bmBitsPixel;
-  7: list<bool> bmBits;
+  7: list<byte> bmBits;
 }
 
 

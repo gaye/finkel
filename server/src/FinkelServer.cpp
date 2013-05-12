@@ -116,7 +116,7 @@ public:
     _return.__set_bmPlanes(bitmap.bmPlanes);
     _return.__set_bmBitsPixel(bitmap.bmBitsPixel);
     char *bitmapBmBits = (char *) bitmap.bmBits;
-    std::vector<bool> bmBits;
+    std::vector<int8_t> bmBits;
     for (int i = 0; i < bitmap.bmWidth * bitmap.bmHeight; i++) {
       bmBits.push_back(bitmapBmBits[i]);
     }

@@ -105,7 +105,7 @@ Bitmap.prototype.read = function(input) {
         for (var _i5 = 0; _i5 < _size0; ++_i5)
         {
           var elem6 = null;
-          elem6 = input.readBool();
+          elem6 = input.readByte();
           this.bmBits.push(elem6);
         }
         input.readListEnd();
@@ -156,13 +156,13 @@ Bitmap.prototype.write = function(output) {
   }
   if (this.bmBits) {
     output.writeFieldBegin('bmBits', Thrift.Type.LIST, 7);
-    output.writeListBegin(Thrift.Type.BOOL, this.bmBits.length);
+    output.writeListBegin(Thrift.Type.BYTE, this.bmBits.length);
     for (var iter7 in this.bmBits)
     {
       if (this.bmBits.hasOwnProperty(iter7))
       {
         iter7 = this.bmBits[iter7];
-        output.writeBool(iter7);
+        output.writeByte(iter7);
       }
     }
     output.writeListEnd();
