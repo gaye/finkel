@@ -7,8 +7,8 @@
 
 
 
-const char* Bitmap::ascii_fingerprint = "99914B932BD37A50B983C5E7C90AE93B";
-const uint8_t Bitmap::binary_fingerprint[16] = {0x99,0x91,0x4B,0x93,0x2B,0xD3,0x7A,0x50,0xB9,0x83,0xC5,0xE7,0xC9,0x0A,0xE9,0x3B};
+const char* Bitmap::ascii_fingerprint = "0FB6713F450FDA917844421D68174C38";
+const uint8_t Bitmap::binary_fingerprint[16] = {0x0F,0xB6,0x71,0x3F,0x45,0x0F,0xDA,0x91,0x78,0x44,0x42,0x1D,0x68,0x17,0x4C,0x38};
 
 uint32_t Bitmap::read(::apache::thrift::protocol::TProtocol* iprot) {
 
@@ -30,6 +30,74 @@ uint32_t Bitmap::read(::apache::thrift::protocol::TProtocol* iprot) {
     }
     switch (fid)
     {
+      case 1:
+        if (ftype == ::apache::thrift::protocol::T_I64) {
+          xfer += iprot->readI64(this->bmType);
+          this->__isset.bmType = true;
+        } else {
+          xfer += iprot->skip(ftype);
+        }
+        break;
+      case 2:
+        if (ftype == ::apache::thrift::protocol::T_I64) {
+          xfer += iprot->readI64(this->bmWidth);
+          this->__isset.bmWidth = true;
+        } else {
+          xfer += iprot->skip(ftype);
+        }
+        break;
+      case 3:
+        if (ftype == ::apache::thrift::protocol::T_I64) {
+          xfer += iprot->readI64(this->bmHeight);
+          this->__isset.bmHeight = true;
+        } else {
+          xfer += iprot->skip(ftype);
+        }
+        break;
+      case 4:
+        if (ftype == ::apache::thrift::protocol::T_I64) {
+          xfer += iprot->readI64(this->bmWidthBytes);
+          this->__isset.bmWidthBytes = true;
+        } else {
+          xfer += iprot->skip(ftype);
+        }
+        break;
+      case 5:
+        if (ftype == ::apache::thrift::protocol::T_I16) {
+          xfer += iprot->readI16(this->bmPlanes);
+          this->__isset.bmPlanes = true;
+        } else {
+          xfer += iprot->skip(ftype);
+        }
+        break;
+      case 6:
+        if (ftype == ::apache::thrift::protocol::T_I16) {
+          xfer += iprot->readI16(this->bmBitsPixel);
+          this->__isset.bmBitsPixel = true;
+        } else {
+          xfer += iprot->skip(ftype);
+        }
+        break;
+      case 7:
+        if (ftype == ::apache::thrift::protocol::T_LIST) {
+          {
+            this->bmBits.clear();
+            uint32_t _size0;
+            ::apache::thrift::protocol::TType _etype3;
+            iprot->readListBegin(_etype3, _size0);
+            this->bmBits.resize(_size0);
+            uint32_t _i4;
+            for (_i4 = 0; _i4 < _size0; ++_i4)
+            {
+              xfer += iprot->readBool(this->bmBits[_i4]);
+            }
+            iprot->readListEnd();
+          }
+          this->__isset.bmBits = true;
+        } else {
+          xfer += iprot->skip(ftype);
+        }
+        break;
       default:
         xfer += iprot->skip(ftype);
         break;
@@ -45,6 +113,35 @@ uint32_t Bitmap::read(::apache::thrift::protocol::TProtocol* iprot) {
 uint32_t Bitmap::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   xfer += oprot->writeStructBegin("Bitmap");
+  xfer += oprot->writeFieldBegin("bmType", ::apache::thrift::protocol::T_I64, 1);
+  xfer += oprot->writeI64(this->bmType);
+  xfer += oprot->writeFieldEnd();
+  xfer += oprot->writeFieldBegin("bmWidth", ::apache::thrift::protocol::T_I64, 2);
+  xfer += oprot->writeI64(this->bmWidth);
+  xfer += oprot->writeFieldEnd();
+  xfer += oprot->writeFieldBegin("bmHeight", ::apache::thrift::protocol::T_I64, 3);
+  xfer += oprot->writeI64(this->bmHeight);
+  xfer += oprot->writeFieldEnd();
+  xfer += oprot->writeFieldBegin("bmWidthBytes", ::apache::thrift::protocol::T_I64, 4);
+  xfer += oprot->writeI64(this->bmWidthBytes);
+  xfer += oprot->writeFieldEnd();
+  xfer += oprot->writeFieldBegin("bmPlanes", ::apache::thrift::protocol::T_I16, 5);
+  xfer += oprot->writeI16(this->bmPlanes);
+  xfer += oprot->writeFieldEnd();
+  xfer += oprot->writeFieldBegin("bmBitsPixel", ::apache::thrift::protocol::T_I16, 6);
+  xfer += oprot->writeI16(this->bmBitsPixel);
+  xfer += oprot->writeFieldEnd();
+  xfer += oprot->writeFieldBegin("bmBits", ::apache::thrift::protocol::T_LIST, 7);
+  {
+    xfer += oprot->writeListBegin(::apache::thrift::protocol::T_BOOL, static_cast<uint32_t>(this->bmBits.size()));
+    std::vector<bool> ::const_iterator _iter5;
+    for (_iter5 = this->bmBits.begin(); _iter5 != this->bmBits.end(); ++_iter5)
+    {
+      xfer += oprot->writeBool((*_iter5));
+    }
+    xfer += oprot->writeListEnd();
+  }
+  xfer += oprot->writeFieldEnd();
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;

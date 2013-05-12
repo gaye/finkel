@@ -8,6 +8,8 @@
 #include <transport/TServerSocket.h>
 #include <transport/TBufferTransports.h>
 #include <ThriftWin32.h>
+// TODO(gareth): Why does it break things to include this first?
+#include "Camera.h"
 
 using namespace ::apache::thrift;
 using namespace ::apache::thrift::protocol;
@@ -22,13 +24,28 @@ using boost::shared_ptr;
 
 class FinkelHandler : virtual public FinkelIf {
 public:
+  /**
+   * Whether or not MTGO is running.
+   */
   bool running;
+
+  /**
+   * Whether or not we're in the MTGO kicker.
+   */
+  bool kicker;
+
+  /**
+   * A camera to take screenshots of MTGO.
+   */
+  Camera *camera;
 
   FinkelHandler() {
     this->running = false;
+    this->kicker = false;
+    this->camera = new Camera();
   }
 
-  bool start(const std::string& username, const std::string& password) {
+  bool Start(const std::string& username, const std::string& password) {
     if (this->running) {
       return false;
     }
@@ -56,23 +73,10 @@ public:
     );
 
     if (!created) {
-      LPVOID msg;
-      DWORD lastError = GetLastError();
-      FormatMessage(
-        FORMAT_MESSAGE_ALLOCATE_BUFFER |
-          FORMAT_MESSAGE_FROM_SYSTEM |
-          FORMAT_MESSAGE_IGNORE_INSERTS,
-        NULL,
-        lastError,
-        MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-        (LPTSTR) &msg,
-        0,
-        NULL
-      );
-
-      OutputDebugString((LPTSTR) msg);
       return false;
     }
+
+    this->kicker = true;
 
     // If there is an update available, get it.
     // TODO(gareth)
@@ -85,7 +89,7 @@ public:
     return true;
   }
 
-  bool stop() {
+  bool Stop() {
     if (!this->running) {
       return false;
     }
@@ -97,7 +101,26 @@ public:
   }
 
   void TakeScreenshot(Bitmap& _return) {
-    // TODO(gareth): Implement this.
+    HWND windowHandle = FindWindow(
+      NULL,
+      this->kicker ? TEXT("Kicker") : TEXT("Magic Online")
+    );
+
+    BITMAP bitmap = this->camera->TakeScreenshot(windowHandle);
+
+    // Serialize bitmap to thrift type
+    _return.__set_bmType(bitmap.bmType);
+    _return.__set_bmWidth(bitmap.bmWidth);
+    _return.__set_bmHeight(bitmap.bmHeight);
+    _return.__set_bmWidthBytes(bitmap.bmWidthBytes);
+    _return.__set_bmPlanes(bitmap.bmPlanes);
+    _return.__set_bmBitsPixel(bitmap.bmBitsPixel);
+    char *bitmapBmBits = (char *) bitmap.bmBits;
+    std::vector<bool> bmBits;
+    for (int i = 0; i < bitmap.bmWidth * bitmap.bmHeight; i++) {
+      bmBits.push_back(bitmapBmBits[i]);
+    }
+    _return.__set_bmBits(bmBits); 
   }
 
   bool ProcessUserInput(const std::vector<UserInput> & inputSequence) {

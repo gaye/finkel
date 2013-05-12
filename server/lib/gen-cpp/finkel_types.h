@@ -15,21 +15,82 @@
 
 
 
+typedef struct _Bitmap__isset {
+  _Bitmap__isset() : bmType(false), bmWidth(false), bmHeight(false), bmWidthBytes(false), bmPlanes(false), bmBitsPixel(false), bmBits(false) {}
+  bool bmType;
+  bool bmWidth;
+  bool bmHeight;
+  bool bmWidthBytes;
+  bool bmPlanes;
+  bool bmBitsPixel;
+  bool bmBits;
+} _Bitmap__isset;
 
 class Bitmap {
  public:
 
-  static const char* ascii_fingerprint; // = "99914B932BD37A50B983C5E7C90AE93B";
-  static const uint8_t binary_fingerprint[16]; // = {0x99,0x91,0x4B,0x93,0x2B,0xD3,0x7A,0x50,0xB9,0x83,0xC5,0xE7,0xC9,0x0A,0xE9,0x3B};
+  static const char* ascii_fingerprint; // = "0FB6713F450FDA917844421D68174C38";
+  static const uint8_t binary_fingerprint[16]; // = {0x0F,0xB6,0x71,0x3F,0x45,0x0F,0xDA,0x91,0x78,0x44,0x42,0x1D,0x68,0x17,0x4C,0x38};
 
-  Bitmap() {
+  Bitmap() : bmType(0), bmWidth(0), bmHeight(0), bmWidthBytes(0), bmPlanes(0), bmBitsPixel(0) {
   }
 
   virtual ~Bitmap() throw() {}
 
+  int64_t bmType;
+  int64_t bmWidth;
+  int64_t bmHeight;
+  int64_t bmWidthBytes;
+  int16_t bmPlanes;
+  int16_t bmBitsPixel;
+  std::vector<bool>  bmBits;
 
-  bool operator == (const Bitmap & /* rhs */) const
+  _Bitmap__isset __isset;
+
+  void __set_bmType(const int64_t val) {
+    bmType = val;
+  }
+
+  void __set_bmWidth(const int64_t val) {
+    bmWidth = val;
+  }
+
+  void __set_bmHeight(const int64_t val) {
+    bmHeight = val;
+  }
+
+  void __set_bmWidthBytes(const int64_t val) {
+    bmWidthBytes = val;
+  }
+
+  void __set_bmPlanes(const int16_t val) {
+    bmPlanes = val;
+  }
+
+  void __set_bmBitsPixel(const int16_t val) {
+    bmBitsPixel = val;
+  }
+
+  void __set_bmBits(const std::vector<bool> & val) {
+    bmBits = val;
+  }
+
+  bool operator == (const Bitmap & rhs) const
   {
+    if (!(bmType == rhs.bmType))
+      return false;
+    if (!(bmWidth == rhs.bmWidth))
+      return false;
+    if (!(bmHeight == rhs.bmHeight))
+      return false;
+    if (!(bmWidthBytes == rhs.bmWidthBytes))
+      return false;
+    if (!(bmPlanes == rhs.bmPlanes))
+      return false;
+    if (!(bmBitsPixel == rhs.bmBitsPixel))
+      return false;
+    if (!(bmBits == rhs.bmBits))
+      return false;
     return true;
   }
   bool operator != (const Bitmap &rhs) const {

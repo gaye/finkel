@@ -43,7 +43,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>C:\Users\Gareth\code\finkel\server\lib\ThriftWin32\include;C:\Users\Gareth\code\finkel\server\lib\gen-cpp;C:\Users\Gareth\code\finkel\server\lib\ThriftWin32\lib\Debug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Gareth\code\finkel\server\lib\ThriftWin32\include;C:\Users\Gareth\code\finkel\server\lib\gen-cpp;C:\Users\Gareth\code\finkel\server\include;C:\Users\Gareth\code\finkel\server\lib\ThriftWin32\lib\Debug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <UseUnicodeForAssemblerListing>
       </UseUnicodeForAssemblerListing>
     </ClCompile>

@@ -1,6 +1,12 @@
 
 struct Bitmap {
-  // TODO(gareth): Add Bitmap fields
+  1: i64 bmType;
+  2: i64 bmWidth;
+  3: i64 bmHeight;
+  4: i64 bmWidthBytes;
+  5: i16 bmPlanes;
+  6: i16 bmBitsPixel;
+  7: list<bool> bmBits;
 }
 
 
@@ -24,27 +30,27 @@ union UserInput {
 
 service Finkel {
   /**
-   * @param {string} username Magic Online username to be used for login.
-   * @param {string} password Magic Online password to be used for login.
-   * @return {bool} Whether or not Magic Online started successfully.
+   * @param username Magic Online username to be used for login.
+   * @param password Magic Online password to be used for login.
+   * @return Whether or not Magic Online started successfully.
    */
-  bool start(1: string username, 2: string password);
+  bool Start(1: string username, 2: string password);
 
 
   /**
-   * @return {bool} Whether or not Magic Online stopped successfully.
+   * @return Whether or not Magic Online stopped successfully.
    */
-  bool stop();
+  bool Stop();
 
 
   /**
-   * @return {Bitmap} Screenshot of Magic Online.
+   * @return Screenshot of Magic Online.
    */
   Bitmap TakeScreenshot();
 
 
   /**
-   * @return {bool} Whether or not the input sequence succeeded.
+   * @return Whether or not the input sequence succeeded.
    */
   bool ProcessUserInput(1: list<UserInput> inputSequence);
 }

@@ -14,8 +14,8 @@
 class FinkelIf {
  public:
   virtual ~FinkelIf() {}
-  virtual bool start(const std::string& username, const std::string& password) = 0;
-  virtual bool stop() = 0;
+  virtual bool Start(const std::string& username, const std::string& password) = 0;
+  virtual bool Stop() = 0;
   virtual void TakeScreenshot(Bitmap& _return) = 0;
   virtual bool ProcessUserInput(const std::vector<UserInput> & inputSequence) = 0;
 };
@@ -23,11 +23,11 @@ class FinkelIf {
 class FinkelNull : virtual public FinkelIf {
  public:
   virtual ~FinkelNull() {}
-  bool start(const std::string& /* username */, const std::string& /* password */) {
+  bool Start(const std::string& /* username */, const std::string& /* password */) {
     bool _return = false;
     return _return;
   }
-  bool stop() {
+  bool Stop() {
     bool _return = false;
     return _return;
   }
@@ -40,24 +40,24 @@ class FinkelNull : virtual public FinkelIf {
   }
 };
 
-typedef struct _Finkel_start_args__isset {
-  _Finkel_start_args__isset() : username(false), password(false) {}
+typedef struct _Finkel_Start_args__isset {
+  _Finkel_Start_args__isset() : username(false), password(false) {}
   bool username;
   bool password;
-} _Finkel_start_args__isset;
+} _Finkel_Start_args__isset;
 
-class Finkel_start_args {
+class Finkel_Start_args {
  public:
 
-  Finkel_start_args() : username(""), password("") {
+  Finkel_Start_args() : username(""), password("") {
   }
 
-  virtual ~Finkel_start_args() throw() {}
+  virtual ~Finkel_Start_args() throw() {}
 
   std::string username;
   std::string password;
 
-  _Finkel_start_args__isset __isset;
+  _Finkel_Start_args__isset __isset;
 
   void __set_username(const std::string& val) {
     username = val;
@@ -67,7 +67,7 @@ class Finkel_start_args {
     password = val;
   }
 
-  bool operator == (const Finkel_start_args & rhs) const
+  bool operator == (const Finkel_Start_args & rhs) const
   {
     if (!(username == rhs.username))
       return false;
@@ -75,11 +75,11 @@ class Finkel_start_args {
       return false;
     return true;
   }
-  bool operator != (const Finkel_start_args &rhs) const {
+  bool operator != (const Finkel_Start_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Finkel_start_args & ) const;
+  bool operator < (const Finkel_Start_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -87,11 +87,11 @@ class Finkel_start_args {
 };
 
 
-class Finkel_start_pargs {
+class Finkel_Start_pargs {
  public:
 
 
-  virtual ~Finkel_start_pargs() throw() {}
+  virtual ~Finkel_Start_pargs() throw() {}
 
   const std::string* username;
   const std::string* password;
@@ -100,82 +100,82 @@ class Finkel_start_pargs {
 
 };
 
-typedef struct _Finkel_start_result__isset {
-  _Finkel_start_result__isset() : success(false) {}
+typedef struct _Finkel_Start_result__isset {
+  _Finkel_Start_result__isset() : success(false) {}
   bool success;
-} _Finkel_start_result__isset;
+} _Finkel_Start_result__isset;
 
-class Finkel_start_result {
+class Finkel_Start_result {
  public:
 
-  Finkel_start_result() : success(0) {
+  Finkel_Start_result() : success(0) {
   }
 
-  virtual ~Finkel_start_result() throw() {}
+  virtual ~Finkel_Start_result() throw() {}
 
   bool success;
 
-  _Finkel_start_result__isset __isset;
+  _Finkel_Start_result__isset __isset;
 
   void __set_success(const bool val) {
     success = val;
   }
 
-  bool operator == (const Finkel_start_result & rhs) const
+  bool operator == (const Finkel_Start_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Finkel_start_result &rhs) const {
+  bool operator != (const Finkel_Start_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Finkel_start_result & ) const;
+  bool operator < (const Finkel_Start_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Finkel_start_presult__isset {
-  _Finkel_start_presult__isset() : success(false) {}
+typedef struct _Finkel_Start_presult__isset {
+  _Finkel_Start_presult__isset() : success(false) {}
   bool success;
-} _Finkel_start_presult__isset;
+} _Finkel_Start_presult__isset;
 
-class Finkel_start_presult {
+class Finkel_Start_presult {
  public:
 
 
-  virtual ~Finkel_start_presult() throw() {}
+  virtual ~Finkel_Start_presult() throw() {}
 
   bool* success;
 
-  _Finkel_start_presult__isset __isset;
+  _Finkel_Start_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
 
-class Finkel_stop_args {
+class Finkel_Stop_args {
  public:
 
-  Finkel_stop_args() {
+  Finkel_Stop_args() {
   }
 
-  virtual ~Finkel_stop_args() throw() {}
+  virtual ~Finkel_Stop_args() throw() {}
 
 
-  bool operator == (const Finkel_stop_args & /* rhs */) const
+  bool operator == (const Finkel_Stop_args & /* rhs */) const
   {
     return true;
   }
-  bool operator != (const Finkel_stop_args &rhs) const {
+  bool operator != (const Finkel_Stop_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Finkel_stop_args & ) const;
+  bool operator < (const Finkel_Stop_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -183,69 +183,69 @@ class Finkel_stop_args {
 };
 
 
-class Finkel_stop_pargs {
+class Finkel_Stop_pargs {
  public:
 
 
-  virtual ~Finkel_stop_pargs() throw() {}
+  virtual ~Finkel_Stop_pargs() throw() {}
 
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Finkel_stop_result__isset {
-  _Finkel_stop_result__isset() : success(false) {}
+typedef struct _Finkel_Stop_result__isset {
+  _Finkel_Stop_result__isset() : success(false) {}
   bool success;
-} _Finkel_stop_result__isset;
+} _Finkel_Stop_result__isset;
 
-class Finkel_stop_result {
+class Finkel_Stop_result {
  public:
 
-  Finkel_stop_result() : success(0) {
+  Finkel_Stop_result() : success(0) {
   }
 
-  virtual ~Finkel_stop_result() throw() {}
+  virtual ~Finkel_Stop_result() throw() {}
 
   bool success;
 
-  _Finkel_stop_result__isset __isset;
+  _Finkel_Stop_result__isset __isset;
 
   void __set_success(const bool val) {
     success = val;
   }
 
-  bool operator == (const Finkel_stop_result & rhs) const
+  bool operator == (const Finkel_Stop_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Finkel_stop_result &rhs) const {
+  bool operator != (const Finkel_Stop_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Finkel_stop_result & ) const;
+  bool operator < (const Finkel_Stop_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Finkel_stop_presult__isset {
-  _Finkel_stop_presult__isset() : success(false) {}
+typedef struct _Finkel_Stop_presult__isset {
+  _Finkel_Stop_presult__isset() : success(false) {}
   bool success;
-} _Finkel_stop_presult__isset;
+} _Finkel_Stop_presult__isset;
 
-class Finkel_stop_presult {
+class Finkel_Stop_presult {
  public:
 
 
-  virtual ~Finkel_stop_presult() throw() {}
+  virtual ~Finkel_Stop_presult() throw() {}
 
   bool* success;
 
-  _Finkel_stop_presult__isset __isset;
+  _Finkel_Stop_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
@@ -473,12 +473,12 @@ class FinkelClient : virtual public FinkelIf {
   boost::shared_ptr< ::apache::thrift::protocol::TProtocol> getOutputProtocol() {
     return poprot_;
   }
-  bool start(const std::string& username, const std::string& password);
-  void send_start(const std::string& username, const std::string& password);
-  bool recv_start();
-  bool stop();
-  void send_stop();
-  bool recv_stop();
+  bool Start(const std::string& username, const std::string& password);
+  void send_Start(const std::string& username, const std::string& password);
+  bool recv_Start();
+  bool Stop();
+  void send_Stop();
+  bool recv_Stop();
   void TakeScreenshot(Bitmap& _return);
   void send_TakeScreenshot();
   void recv_TakeScreenshot(Bitmap& _return);
@@ -498,15 +498,15 @@ class FinkelProcessor : virtual public ::apache::thrift::TProcessor {
   virtual bool process_fn(::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, std::string& fname, int32_t seqid, void* callContext);
  private:
   std::map<std::string, void (FinkelProcessor::*)(int32_t, ::apache::thrift::protocol::TProtocol*, ::apache::thrift::protocol::TProtocol*, void*)> processMap_;
-  void process_start(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_stop(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_Start(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_Stop(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_TakeScreenshot(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_ProcessUserInput(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
  public:
   FinkelProcessor(boost::shared_ptr<FinkelIf> iface) :
     iface_(iface) {
-    processMap_["start"] = &FinkelProcessor::process_start;
-    processMap_["stop"] = &FinkelProcessor::process_stop;
+    processMap_["Start"] = &FinkelProcessor::process_Start;
+    processMap_["Stop"] = &FinkelProcessor::process_Stop;
     processMap_["TakeScreenshot"] = &FinkelProcessor::process_TakeScreenshot;
     processMap_["ProcessUserInput"] = &FinkelProcessor::process_ProcessUserInput;
   }
@@ -527,24 +527,24 @@ class FinkelMultiface : virtual public FinkelIf {
     ifaces_.push_back(iface);
   }
  public:
-  bool start(const std::string& username, const std::string& password) {
+  bool Start(const std::string& username, const std::string& password) {
     size_t sz = ifaces_.size();
     for (size_t i = 0; i < sz; ++i) {
       if (i == sz - 1) {
-        return ifaces_[i]->start(username, password);
+        return ifaces_[i]->Start(username, password);
       } else {
-        ifaces_[i]->start(username, password);
+        ifaces_[i]->Start(username, password);
       }
     }
   }
 
-  bool stop() {
+  bool Stop() {
     size_t sz = ifaces_.size();
     for (size_t i = 0; i < sz; ++i) {
       if (i == sz - 1) {
-        return ifaces_[i]->stop();
+        return ifaces_[i]->Stop();
       } else {
-        ifaces_[i]->stop();
+        ifaces_[i]->Stop();
       }
     }
   }

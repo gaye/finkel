@@ -7,7 +7,7 @@
 
 
 
-uint32_t Finkel_start_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Finkel_Start_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -55,9 +55,9 @@ uint32_t Finkel_start_args::read(::apache::thrift::protocol::TProtocol* iprot) {
   return xfer;
 }
 
-uint32_t Finkel_start_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Finkel_Start_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Finkel_start_args");
+  xfer += oprot->writeStructBegin("Finkel_Start_args");
   xfer += oprot->writeFieldBegin("username", ::apache::thrift::protocol::T_STRING, 1);
   xfer += oprot->writeString(this->username);
   xfer += oprot->writeFieldEnd();
@@ -69,9 +69,9 @@ uint32_t Finkel_start_args::write(::apache::thrift::protocol::TProtocol* oprot) 
   return xfer;
 }
 
-uint32_t Finkel_start_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Finkel_Start_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Finkel_start_pargs");
+  xfer += oprot->writeStructBegin("Finkel_Start_pargs");
   xfer += oprot->writeFieldBegin("username", ::apache::thrift::protocol::T_STRING, 1);
   xfer += oprot->writeString((*(this->username)));
   xfer += oprot->writeFieldEnd();
@@ -83,7 +83,7 @@ uint32_t Finkel_start_pargs::write(::apache::thrift::protocol::TProtocol* oprot)
   return xfer;
 }
 
-uint32_t Finkel_start_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Finkel_Start_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -123,11 +123,11 @@ uint32_t Finkel_start_result::read(::apache::thrift::protocol::TProtocol* iprot)
   return xfer;
 }
 
-uint32_t Finkel_start_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Finkel_Start_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Finkel_start_result");
+  xfer += oprot->writeStructBegin("Finkel_Start_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_BOOL, 0);
@@ -139,7 +139,7 @@ uint32_t Finkel_start_result::write(::apache::thrift::protocol::TProtocol* oprot
   return xfer;
 }
 
-uint32_t Finkel_start_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Finkel_Start_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -179,7 +179,7 @@ uint32_t Finkel_start_presult::read(::apache::thrift::protocol::TProtocol* iprot
   return xfer;
 }
 
-uint32_t Finkel_stop_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Finkel_Stop_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -211,23 +211,23 @@ uint32_t Finkel_stop_args::read(::apache::thrift::protocol::TProtocol* iprot) {
   return xfer;
 }
 
-uint32_t Finkel_stop_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Finkel_Stop_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Finkel_stop_args");
+  xfer += oprot->writeStructBegin("Finkel_Stop_args");
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
 }
 
-uint32_t Finkel_stop_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Finkel_Stop_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Finkel_stop_pargs");
+  xfer += oprot->writeStructBegin("Finkel_Stop_pargs");
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
 }
 
-uint32_t Finkel_stop_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Finkel_Stop_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -267,11 +267,11 @@ uint32_t Finkel_stop_result::read(::apache::thrift::protocol::TProtocol* iprot) 
   return xfer;
 }
 
-uint32_t Finkel_stop_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Finkel_Stop_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Finkel_stop_result");
+  xfer += oprot->writeStructBegin("Finkel_Stop_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_BOOL, 0);
@@ -283,7 +283,7 @@ uint32_t Finkel_stop_result::write(::apache::thrift::protocol::TProtocol* oprot)
   return xfer;
 }
 
-uint32_t Finkel_stop_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Finkel_Stop_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -491,14 +491,14 @@ uint32_t Finkel_ProcessUserInput_args::read(::apache::thrift::protocol::TProtoco
         if (ftype == ::apache::thrift::protocol::T_LIST) {
           {
             this->inputSequence.clear();
-            uint32_t _size0;
-            ::apache::thrift::protocol::TType _etype3;
-            iprot->readListBegin(_etype3, _size0);
-            this->inputSequence.resize(_size0);
-            uint32_t _i4;
-            for (_i4 = 0; _i4 < _size0; ++_i4)
+            uint32_t _size6;
+            ::apache::thrift::protocol::TType _etype9;
+            iprot->readListBegin(_etype9, _size6);
+            this->inputSequence.resize(_size6);
+            uint32_t _i10;
+            for (_i10 = 0; _i10 < _size6; ++_i10)
             {
-              xfer += this->inputSequence[_i4].read(iprot);
+              xfer += this->inputSequence[_i10].read(iprot);
             }
             iprot->readListEnd();
           }
@@ -525,10 +525,10 @@ uint32_t Finkel_ProcessUserInput_args::write(::apache::thrift::protocol::TProtoc
   xfer += oprot->writeFieldBegin("inputSequence", ::apache::thrift::protocol::T_LIST, 1);
   {
     xfer += oprot->writeListBegin(::apache::thrift::protocol::T_STRUCT, static_cast<uint32_t>(this->inputSequence.size()));
-    std::vector<UserInput> ::const_iterator _iter5;
-    for (_iter5 = this->inputSequence.begin(); _iter5 != this->inputSequence.end(); ++_iter5)
+    std::vector<UserInput> ::const_iterator _iter11;
+    for (_iter11 = this->inputSequence.begin(); _iter11 != this->inputSequence.end(); ++_iter11)
     {
-      xfer += (*_iter5).write(oprot);
+      xfer += (*_iter11).write(oprot);
     }
     xfer += oprot->writeListEnd();
   }
@@ -544,10 +544,10 @@ uint32_t Finkel_ProcessUserInput_pargs::write(::apache::thrift::protocol::TProto
   xfer += oprot->writeFieldBegin("inputSequence", ::apache::thrift::protocol::T_LIST, 1);
   {
     xfer += oprot->writeListBegin(::apache::thrift::protocol::T_STRUCT, static_cast<uint32_t>((*(this->inputSequence)).size()));
-    std::vector<UserInput> ::const_iterator _iter6;
-    for (_iter6 = (*(this->inputSequence)).begin(); _iter6 != (*(this->inputSequence)).end(); ++_iter6)
+    std::vector<UserInput> ::const_iterator _iter12;
+    for (_iter12 = (*(this->inputSequence)).begin(); _iter12 != (*(this->inputSequence)).end(); ++_iter12)
     {
-      xfer += (*_iter6).write(oprot);
+      xfer += (*_iter12).write(oprot);
     }
     xfer += oprot->writeListEnd();
   }
@@ -653,18 +653,18 @@ uint32_t Finkel_ProcessUserInput_presult::read(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-bool FinkelClient::start(const std::string& username, const std::string& password)
+bool FinkelClient::Start(const std::string& username, const std::string& password)
 {
-  send_start(username, password);
-  return recv_start();
+  send_Start(username, password);
+  return recv_Start();
 }
 
-void FinkelClient::send_start(const std::string& username, const std::string& password)
+void FinkelClient::send_Start(const std::string& username, const std::string& password)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("start", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("Start", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Finkel_start_pargs args;
+  Finkel_Start_pargs args;
   args.username = &username;
   args.password = &password;
   args.write(oprot_);
@@ -674,7 +674,7 @@ void FinkelClient::send_start(const std::string& username, const std::string& pa
   oprot_->getTransport()->flush();
 }
 
-bool FinkelClient::recv_start()
+bool FinkelClient::recv_Start()
 {
 
   int32_t rseqid = 0;
@@ -694,13 +694,13 @@ bool FinkelClient::recv_start()
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("start") != 0) {
+  if (fname.compare("Start") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
   bool _return;
-  Finkel_start_presult result;
+  Finkel_Start_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -709,21 +709,21 @@ bool FinkelClient::recv_start()
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "start failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "Start failed: unknown result");
 }
 
-bool FinkelClient::stop()
+bool FinkelClient::Stop()
 {
-  send_stop();
-  return recv_stop();
+  send_Stop();
+  return recv_Stop();
 }
 
-void FinkelClient::send_stop()
+void FinkelClient::send_Stop()
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("stop", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("Stop", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Finkel_stop_pargs args;
+  Finkel_Stop_pargs args;
   args.write(oprot_);
 
   oprot_->writeMessageEnd();
@@ -731,7 +731,7 @@ void FinkelClient::send_stop()
   oprot_->getTransport()->flush();
 }
 
-bool FinkelClient::recv_stop()
+bool FinkelClient::recv_Stop()
 {
 
   int32_t rseqid = 0;
@@ -751,13 +751,13 @@ bool FinkelClient::recv_stop()
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("stop") != 0) {
+  if (fname.compare("Stop") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
   bool _return;
-  Finkel_stop_presult result;
+  Finkel_Stop_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -766,7 +766,7 @@ bool FinkelClient::recv_stop()
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "stop failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "Stop failed: unknown result");
 }
 
 void FinkelClient::TakeScreenshot(Bitmap& _return)
@@ -929,38 +929,38 @@ bool FinkelProcessor::process_fn(::apache::thrift::protocol::TProtocol* iprot, :
   return true;
 }
 
-void FinkelProcessor::process_start(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void FinkelProcessor::process_Start(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (eventHandler_.get() != NULL) {
-    ctx = eventHandler_->getContext("Finkel.start", callContext);
+    ctx = eventHandler_->getContext("Finkel.Start", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(eventHandler_.get(), ctx, "Finkel.start");
+  ::apache::thrift::TProcessorContextFreer freer(eventHandler_.get(), ctx, "Finkel.Start");
 
   if (eventHandler_.get() != NULL) {
-    eventHandler_->preRead(ctx, "Finkel.start");
+    eventHandler_->preRead(ctx, "Finkel.Start");
   }
 
-  Finkel_start_args args;
+  Finkel_Start_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (eventHandler_.get() != NULL) {
-    eventHandler_->postRead(ctx, "Finkel.start", bytes);
+    eventHandler_->postRead(ctx, "Finkel.Start", bytes);
   }
 
-  Finkel_start_result result;
+  Finkel_Start_result result;
   try {
-    result.success = iface_->start(args.username, args.password);
+    result.success = iface_->Start(args.username, args.password);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (eventHandler_.get() != NULL) {
-      eventHandler_->handlerError(ctx, "Finkel.start");
+      eventHandler_->handlerError(ctx, "Finkel.Start");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("start", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("Start", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -969,52 +969,52 @@ void FinkelProcessor::process_start(int32_t seqid, ::apache::thrift::protocol::T
   }
 
   if (eventHandler_.get() != NULL) {
-    eventHandler_->preWrite(ctx, "Finkel.start");
+    eventHandler_->preWrite(ctx, "Finkel.Start");
   }
 
-  oprot->writeMessageBegin("start", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("Start", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (eventHandler_.get() != NULL) {
-    eventHandler_->postWrite(ctx, "Finkel.start", bytes);
+    eventHandler_->postWrite(ctx, "Finkel.Start", bytes);
   }
 }
 
-void FinkelProcessor::process_stop(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void FinkelProcessor::process_Stop(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (eventHandler_.get() != NULL) {
-    ctx = eventHandler_->getContext("Finkel.stop", callContext);
+    ctx = eventHandler_->getContext("Finkel.Stop", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(eventHandler_.get(), ctx, "Finkel.stop");
+  ::apache::thrift::TProcessorContextFreer freer(eventHandler_.get(), ctx, "Finkel.Stop");
 
   if (eventHandler_.get() != NULL) {
-    eventHandler_->preRead(ctx, "Finkel.stop");
+    eventHandler_->preRead(ctx, "Finkel.Stop");
   }
 
-  Finkel_stop_args args;
+  Finkel_Stop_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (eventHandler_.get() != NULL) {
-    eventHandler_->postRead(ctx, "Finkel.stop", bytes);
+    eventHandler_->postRead(ctx, "Finkel.Stop", bytes);
   }
 
-  Finkel_stop_result result;
+  Finkel_Stop_result result;
   try {
-    result.success = iface_->stop();
+    result.success = iface_->Stop();
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (eventHandler_.get() != NULL) {
-      eventHandler_->handlerError(ctx, "Finkel.stop");
+      eventHandler_->handlerError(ctx, "Finkel.Stop");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("stop", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("Stop", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -1023,17 +1023,17 @@ void FinkelProcessor::process_stop(int32_t seqid, ::apache::thrift::protocol::TP
   }
 
   if (eventHandler_.get() != NULL) {
-    eventHandler_->preWrite(ctx, "Finkel.stop");
+    eventHandler_->preWrite(ctx, "Finkel.Stop");
   }
 
-  oprot->writeMessageBegin("stop", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("Stop", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (eventHandler_.get() != NULL) {
-    eventHandler_->postWrite(ctx, "Finkel.stop", bytes);
+    eventHandler_->postWrite(ctx, "Finkel.Stop", bytes);
   }
 }
 
