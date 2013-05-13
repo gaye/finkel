@@ -16,7 +16,7 @@ class FinkelIf {
   virtual ~FinkelIf() {}
   virtual bool Start(const std::string& username, const std::string& password) = 0;
   virtual bool Stop() = 0;
-  virtual void TakeScreenshot(Bitmap& _return) = 0;
+  virtual void TakeScreenshot(std::vector<std::vector<int8_t> > & _return) = 0;
   virtual bool ProcessUserInput(const std::vector<UserInput> & inputSequence) = 0;
 };
 
@@ -31,7 +31,7 @@ class FinkelNull : virtual public FinkelIf {
     bool _return = false;
     return _return;
   }
-  void TakeScreenshot(Bitmap& /* _return */) {
+  void TakeScreenshot(std::vector<std::vector<int8_t> > & /* _return */) {
     return;
   }
   bool ProcessUserInput(const std::vector<UserInput> & /* inputSequence */) {
@@ -301,11 +301,11 @@ class Finkel_TakeScreenshot_result {
 
   virtual ~Finkel_TakeScreenshot_result() throw() {}
 
-  Bitmap success;
+  std::vector<std::vector<int8_t> >  success;
 
   _Finkel_TakeScreenshot_result__isset __isset;
 
-  void __set_success(const Bitmap& val) {
+  void __set_success(const std::vector<std::vector<int8_t> > & val) {
     success = val;
   }
 
@@ -337,7 +337,7 @@ class Finkel_TakeScreenshot_presult {
 
   virtual ~Finkel_TakeScreenshot_presult() throw() {}
 
-  Bitmap* success;
+  std::vector<std::vector<int8_t> > * success;
 
   _Finkel_TakeScreenshot_presult__isset __isset;
 
@@ -479,9 +479,9 @@ class FinkelClient : virtual public FinkelIf {
   bool Stop();
   void send_Stop();
   bool recv_Stop();
-  void TakeScreenshot(Bitmap& _return);
+  void TakeScreenshot(std::vector<std::vector<int8_t> > & _return);
   void send_TakeScreenshot();
-  void recv_TakeScreenshot(Bitmap& _return);
+  void recv_TakeScreenshot(std::vector<std::vector<int8_t> > & _return);
   bool ProcessUserInput(const std::vector<UserInput> & inputSequence);
   void send_ProcessUserInput(const std::vector<UserInput> & inputSequence);
   bool recv_ProcessUserInput();
@@ -549,7 +549,7 @@ class FinkelMultiface : virtual public FinkelIf {
     }
   }
 
-  void TakeScreenshot(Bitmap& _return) {
+  void TakeScreenshot(std::vector<std::vector<int8_t> > & _return) {
     size_t sz = ifaces_.size();
     for (size_t i = 0; i < sz; ++i) {
       if (i == sz - 1) {

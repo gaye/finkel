@@ -40,6 +40,7 @@ public:
   Camera *camera;
 
   FinkelHandler() {
+    OutputDebugString(TEXT("Bringing up Finkel Service"));
     this->running = false;
     this->kicker = false;
     this->camera = new Camera();
@@ -78,6 +79,14 @@ public:
 
     this->kicker = true;
 
+    // Wait for the kicker to come up.
+    HWND windowHandle = this->_GetWindow();
+    while (windowHandle == NULL) {
+      OutputDebugString(TEXT("Waiting for Kicker..."));
+      Sleep(1000);
+      windowHandle = this->_GetWindow();
+    }
+
     // If there is an update available, get it.
     // TODO(gareth)
 
@@ -90,44 +99,35 @@ public:
   }
 
   bool Stop() {
+    OutputDebugString(TEXT("Stop"));
     if (!this->running) {
       return false;
     }
 
     // Kill Magic Online
+    CloseWindow(this->_GetWindow());
 
     this->running = false;
     return true;
   }
 
-  void TakeScreenshot(Bitmap& _return) {
-    HWND windowHandle = FindWindow(
-      NULL,
-      this->kicker ? TEXT("Kicker") : TEXT("Magic Online")
-    );
-
-    BITMAP bitmap = this->camera->TakeScreenshot(windowHandle);
-
-    // Serialize bitmap to thrift type
-    _return.__set_bmType(bitmap.bmType);
-    _return.__set_bmWidth(bitmap.bmWidth);
-    _return.__set_bmHeight(bitmap.bmHeight);
-    _return.__set_bmWidthBytes(bitmap.bmWidthBytes);
-    _return.__set_bmPlanes(bitmap.bmPlanes);
-    _return.__set_bmBitsPixel(bitmap.bmBitsPixel);
-    char *bitmapBmBits = (char *) bitmap.bmBits;
-    std::vector<int8_t> bmBits;
-    for (int i = 0; i < bitmap.bmWidth * bitmap.bmHeight; i++) {
-      bmBits.push_back(bitmapBmBits[i]);
-    }
-    _return.__set_bmBits(bmBits); 
+  void TakeScreenshot(std::vector<std::vector<int8_t>> & _return) {
+    OutputDebugString(TEXT("TakeScreenshot"));
+    this->camera->TakeScreenshot(this->_GetWindow(), _return);
   }
 
   bool ProcessUserInput(const std::vector<UserInput> & inputSequence) {
     // TODO(gareth): Implement this.
+    OutputDebugString(TEXT("ProcessUserInput"));
     return false;
   }
 
+  HWND _GetWindow() {
+    return FindWindow(
+      NULL,
+      TEXT("Magic Online 3.0")
+    );
+  }
 };
 
 int main(int argc, char **argv) {

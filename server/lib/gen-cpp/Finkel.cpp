@@ -392,8 +392,32 @@ uint32_t Finkel_TakeScreenshot_result::read(::apache::thrift::protocol::TProtoco
     switch (fid)
     {
       case 0:
-        if (ftype == ::apache::thrift::protocol::T_STRUCT) {
-          xfer += this->success.read(iprot);
+        if (ftype == ::apache::thrift::protocol::T_LIST) {
+          {
+            this->success.clear();
+            uint32_t _size0;
+            ::apache::thrift::protocol::TType _etype3;
+            iprot->readListBegin(_etype3, _size0);
+            this->success.resize(_size0);
+            uint32_t _i4;
+            for (_i4 = 0; _i4 < _size0; ++_i4)
+            {
+              {
+                this->success[_i4].clear();
+                uint32_t _size5;
+                ::apache::thrift::protocol::TType _etype8;
+                iprot->readListBegin(_etype8, _size5);
+                this->success[_i4].resize(_size5);
+                uint32_t _i9;
+                for (_i9 = 0; _i9 < _size5; ++_i9)
+                {
+                  xfer += iprot->readByte(this->success[_i4][_i9]);
+                }
+                iprot->readListEnd();
+              }
+            }
+            iprot->readListEnd();
+          }
           this->__isset.success = true;
         } else {
           xfer += iprot->skip(ftype);
@@ -418,8 +442,24 @@ uint32_t Finkel_TakeScreenshot_result::write(::apache::thrift::protocol::TProtoc
   xfer += oprot->writeStructBegin("Finkel_TakeScreenshot_result");
 
   if (this->__isset.success) {
-    xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
-    xfer += this->success.write(oprot);
+    xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_LIST, 0);
+    {
+      xfer += oprot->writeListBegin(::apache::thrift::protocol::T_LIST, static_cast<uint32_t>(this->success.size()));
+      std::vector<std::vector<int8_t> > ::const_iterator _iter10;
+      for (_iter10 = this->success.begin(); _iter10 != this->success.end(); ++_iter10)
+      {
+        {
+          xfer += oprot->writeListBegin(::apache::thrift::protocol::T_BYTE, static_cast<uint32_t>((*_iter10).size()));
+          std::vector<int8_t> ::const_iterator _iter11;
+          for (_iter11 = (*_iter10).begin(); _iter11 != (*_iter10).end(); ++_iter11)
+          {
+            xfer += oprot->writeByte((*_iter11));
+          }
+          xfer += oprot->writeListEnd();
+        }
+      }
+      xfer += oprot->writeListEnd();
+    }
     xfer += oprot->writeFieldEnd();
   }
   xfer += oprot->writeFieldStop();
@@ -448,8 +488,32 @@ uint32_t Finkel_TakeScreenshot_presult::read(::apache::thrift::protocol::TProtoc
     switch (fid)
     {
       case 0:
-        if (ftype == ::apache::thrift::protocol::T_STRUCT) {
-          xfer += (*(this->success)).read(iprot);
+        if (ftype == ::apache::thrift::protocol::T_LIST) {
+          {
+            (*(this->success)).clear();
+            uint32_t _size12;
+            ::apache::thrift::protocol::TType _etype15;
+            iprot->readListBegin(_etype15, _size12);
+            (*(this->success)).resize(_size12);
+            uint32_t _i16;
+            for (_i16 = 0; _i16 < _size12; ++_i16)
+            {
+              {
+                (*(this->success))[_i16].clear();
+                uint32_t _size17;
+                ::apache::thrift::protocol::TType _etype20;
+                iprot->readListBegin(_etype20, _size17);
+                (*(this->success))[_i16].resize(_size17);
+                uint32_t _i21;
+                for (_i21 = 0; _i21 < _size17; ++_i21)
+                {
+                  xfer += iprot->readByte((*(this->success))[_i16][_i21]);
+                }
+                iprot->readListEnd();
+              }
+            }
+            iprot->readListEnd();
+          }
           this->__isset.success = true;
         } else {
           xfer += iprot->skip(ftype);
@@ -491,14 +555,14 @@ uint32_t Finkel_ProcessUserInput_args::read(::apache::thrift::protocol::TProtoco
         if (ftype == ::apache::thrift::protocol::T_LIST) {
           {
             this->inputSequence.clear();
-            uint32_t _size6;
-            ::apache::thrift::protocol::TType _etype9;
-            iprot->readListBegin(_etype9, _size6);
-            this->inputSequence.resize(_size6);
-            uint32_t _i10;
-            for (_i10 = 0; _i10 < _size6; ++_i10)
+            uint32_t _size22;
+            ::apache::thrift::protocol::TType _etype25;
+            iprot->readListBegin(_etype25, _size22);
+            this->inputSequence.resize(_size22);
+            uint32_t _i26;
+            for (_i26 = 0; _i26 < _size22; ++_i26)
             {
-              xfer += this->inputSequence[_i10].read(iprot);
+              xfer += this->inputSequence[_i26].read(iprot);
             }
             iprot->readListEnd();
           }
@@ -525,10 +589,10 @@ uint32_t Finkel_ProcessUserInput_args::write(::apache::thrift::protocol::TProtoc
   xfer += oprot->writeFieldBegin("inputSequence", ::apache::thrift::protocol::T_LIST, 1);
   {
     xfer += oprot->writeListBegin(::apache::thrift::protocol::T_STRUCT, static_cast<uint32_t>(this->inputSequence.size()));
-    std::vector<UserInput> ::const_iterator _iter11;
-    for (_iter11 = this->inputSequence.begin(); _iter11 != this->inputSequence.end(); ++_iter11)
+    std::vector<UserInput> ::const_iterator _iter27;
+    for (_iter27 = this->inputSequence.begin(); _iter27 != this->inputSequence.end(); ++_iter27)
     {
-      xfer += (*_iter11).write(oprot);
+      xfer += (*_iter27).write(oprot);
     }
     xfer += oprot->writeListEnd();
   }
@@ -544,10 +608,10 @@ uint32_t Finkel_ProcessUserInput_pargs::write(::apache::thrift::protocol::TProto
   xfer += oprot->writeFieldBegin("inputSequence", ::apache::thrift::protocol::T_LIST, 1);
   {
     xfer += oprot->writeListBegin(::apache::thrift::protocol::T_STRUCT, static_cast<uint32_t>((*(this->inputSequence)).size()));
-    std::vector<UserInput> ::const_iterator _iter12;
-    for (_iter12 = (*(this->inputSequence)).begin(); _iter12 != (*(this->inputSequence)).end(); ++_iter12)
+    std::vector<UserInput> ::const_iterator _iter28;
+    for (_iter28 = (*(this->inputSequence)).begin(); _iter28 != (*(this->inputSequence)).end(); ++_iter28)
     {
-      xfer += (*_iter12).write(oprot);
+      xfer += (*_iter28).write(oprot);
     }
     xfer += oprot->writeListEnd();
   }
@@ -769,7 +833,7 @@ bool FinkelClient::recv_Stop()
   throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "Stop failed: unknown result");
 }
 
-void FinkelClient::TakeScreenshot(Bitmap& _return)
+void FinkelClient::TakeScreenshot(std::vector<std::vector<int8_t> > & _return)
 {
   send_TakeScreenshot();
   recv_TakeScreenshot(_return);
@@ -788,7 +852,7 @@ void FinkelClient::send_TakeScreenshot()
   oprot_->getTransport()->flush();
 }
 
-void FinkelClient::recv_TakeScreenshot(Bitmap& _return)
+void FinkelClient::recv_TakeScreenshot(std::vector<std::vector<int8_t> > & _return)
 {
 
   int32_t rseqid = 0;

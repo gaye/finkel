@@ -259,9 +259,34 @@ Finkel_TakeScreenshot_result.prototype.read = function(input) {
     switch (fid)
     {
       case 0:
-      if (ftype == Thrift.Type.STRUCT) {
-        this.success = new ttypes.Bitmap();
-        this.success.read(input);
+      if (ftype == Thrift.Type.LIST) {
+        var _size0 = 0;
+        var _rtmp34;
+        this.success = [];
+        var _etype3 = 0;
+        _rtmp34 = input.readListBegin();
+        _etype3 = _rtmp34.etype;
+        _size0 = _rtmp34.size;
+        for (var _i5 = 0; _i5 < _size0; ++_i5)
+        {
+          var elem6 = null;
+          var _size7 = 0;
+          var _rtmp311;
+          elem6 = [];
+          var _etype10 = 0;
+          _rtmp311 = input.readListBegin();
+          _etype10 = _rtmp311.etype;
+          _size7 = _rtmp311.size;
+          for (var _i12 = 0; _i12 < _size7; ++_i12)
+          {
+            var elem13 = null;
+            elem13 = input.readByte();
+            elem6.push(elem13);
+          }
+          input.readListEnd();
+          this.success.push(elem6);
+        }
+        input.readListEnd();
       } else {
         input.skip(ftype);
       }
@@ -281,8 +306,26 @@ Finkel_TakeScreenshot_result.prototype.read = function(input) {
 Finkel_TakeScreenshot_result.prototype.write = function(output) {
   output.writeStructBegin('Finkel_TakeScreenshot_result');
   if (this.success) {
-    output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
-    this.success.write(output);
+    output.writeFieldBegin('success', Thrift.Type.LIST, 0);
+    output.writeListBegin(Thrift.Type.LIST, this.success.length);
+    for (var iter14 in this.success)
+    {
+      if (this.success.hasOwnProperty(iter14))
+      {
+        iter14 = this.success[iter14];
+        output.writeListBegin(Thrift.Type.BYTE, iter14.length);
+        for (var iter15 in iter14)
+        {
+          if (iter14.hasOwnProperty(iter15))
+          {
+            iter15 = iter14[iter15];
+            output.writeByte(iter15);
+          }
+        }
+        output.writeListEnd();
+      }
+    }
+    output.writeListEnd();
     output.writeFieldEnd();
   }
   output.writeFieldStop();
@@ -314,19 +357,19 @@ Finkel_ProcessUserInput_args.prototype.read = function(input) {
     {
       case 1:
       if (ftype == Thrift.Type.LIST) {
-        var _size8 = 0;
-        var _rtmp312;
+        var _size16 = 0;
+        var _rtmp320;
         this.inputSequence = [];
-        var _etype11 = 0;
-        _rtmp312 = input.readListBegin();
-        _etype11 = _rtmp312.etype;
-        _size8 = _rtmp312.size;
-        for (var _i13 = 0; _i13 < _size8; ++_i13)
+        var _etype19 = 0;
+        _rtmp320 = input.readListBegin();
+        _etype19 = _rtmp320.etype;
+        _size16 = _rtmp320.size;
+        for (var _i21 = 0; _i21 < _size16; ++_i21)
         {
-          var elem14 = null;
-          elem14 = new ttypes.UserInput();
-          elem14.read(input);
-          this.inputSequence.push(elem14);
+          var elem22 = null;
+          elem22 = new ttypes.UserInput();
+          elem22.read(input);
+          this.inputSequence.push(elem22);
         }
         input.readListEnd();
       } else {
@@ -350,12 +393,12 @@ Finkel_ProcessUserInput_args.prototype.write = function(output) {
   if (this.inputSequence) {
     output.writeFieldBegin('inputSequence', Thrift.Type.LIST, 1);
     output.writeListBegin(Thrift.Type.STRUCT, this.inputSequence.length);
-    for (var iter15 in this.inputSequence)
+    for (var iter23 in this.inputSequence)
     {
-      if (this.inputSequence.hasOwnProperty(iter15))
+      if (this.inputSequence.hasOwnProperty(iter23))
       {
-        iter15 = this.inputSequence[iter15];
-        iter15.write(output);
+        iter23 = this.inputSequence[iter23];
+        iter23.write(output);
       }
     }
     output.writeListEnd();

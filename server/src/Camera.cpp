@@ -6,7 +6,8 @@ Camera::Camera() {
 }
 
 
-BITMAP Camera::TakeScreenshot(HWND windowHandle) {
+void Camera::TakeScreenshot(HWND windowHandle,
+  std::vector<std::vector<int8_t>> & _return) {
   // Get the dimensions of the window.
   RECT rect;
   GetClientRect(windowHandle, &rect);
@@ -32,5 +33,11 @@ BITMAP Camera::TakeScreenshot(HWND windowHandle) {
   DeleteObject(bitmapHandle);
   ReleaseDC(NULL, deviceHandle);
 
-  return bitmap;
+  this->_Serialize(bitmap, _return);
+}
+
+
+void Camera::_Serialize(BITMAP bitmap,
+  std::vector<std::vector<int8_t>> & _return) {
+  // TODO(gareth)
 }

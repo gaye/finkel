@@ -1,15 +1,4 @@
 
-struct Bitmap {
-  1: i64 bmType;
-  2: i64 bmWidth;
-  3: i64 bmHeight;
-  4: i64 bmWidthBytes;
-  5: i16 bmPlanes;
-  6: i16 bmBitsPixel;
-  7: list<byte> bmBits;
-}
-
-
 struct KeyboardInput {
   1: string text;
 }
@@ -46,7 +35,7 @@ service Finkel {
   /**
    * @return Screenshot of Magic Online.
    */
-  Bitmap TakeScreenshot();
+  list<list<byte>> TakeScreenshot();
 
 
   /**

@@ -1,10 +1,13 @@
 
 /**
- * @fileoverview Grab screenshots from window handles.
+ * @fileoverview Grab screenshots from window handles and convert them
+ *     into 2D arrays of pixels.
  */
 #ifndef Camera_H
 #define Camera_H
 
+#include "Finkel.h"
+#include <vector>
 #include <windows.h>
 
 class Camera {
@@ -13,11 +16,25 @@ public:
 
   /**
    * Take a screenshot.
-   * @param {HWND} windowHandle Take a picture of the window on the handle.
+   * @param windowHandle Take a picture of the window on the handle.
    *     Cannot be null.
-   * @return {BITMAPH} Bitmap handle.
+   * @param _return The 2D pixel array to write into.
    */
-  BITMAP TakeScreenshot(HWND windowHandle);
+  void TakeScreenshot(
+    HWND windowHandle,
+    std::vector<std::vector<int8_t>> & _return
+  );
+
+private:
+  /**
+   * Convert a BITMAP to a 2D pixel array.
+   * @param bitmap Some bitmap.
+   * @param _return The 2D pixel array to write into.
+   */
+  void _Serialize(
+    BITMAP bitmap,
+    std::vector<std::vector<int8_t>> & _return
+  );
 };
 
 #endif
