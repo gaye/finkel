@@ -22,4 +22,3 @@ Save your soul and leave while you still have time!
 2. Run `FinkelServer.cpp`.
 3. Set the host and port of the thrift service in `client/bin/bot.js`.
 4. `client/bin/bot.js`
- 
